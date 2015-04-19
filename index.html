@@ -172,9 +172,7 @@ x <span class="pl-k">=</span> x <span class="pl-k">*</span> <span class="pl-c1">
 *把bollean测试放在括号中</p>
 </blockquote>
 
-<h2>
-<a id="第一章结束啦" class="anchor" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%93%E6%9D%9F%E5%95%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>第一章结束啦</strong>
-</h2>
+<hr>
 
 <h2>
 <a id="chapter02-对象" class="anchor" href="#chapter02-%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>chapter02 对象</h2>
@@ -320,6 +318,86 @@ p3isRight <span class="pl-k">=</span> <span class="pl-c1">true</span>;
       game<span class="pl-k">.</span>startGame();
  }
 }</pre></div>
+
+<h2>
+<a id="chapter03-primitive主数据类型和引用" class="anchor" href="#chapter03-primitive%E4%B8%BB%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>chapter03 primitive主数据类型和引用</h2>
+
+<hr>
+
+<p>变量有两种</p>
+
+<blockquote>
+<p>*主数据类型
+*引用</p>
+</blockquote>
+
+<p>声明变量：变量必须有类型和名称。
+名称要避开保留字
+<img src="http://7xinhd.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-04-19%20%E4%B8%8B%E5%8D%889.56.28.png" alt="此处输入图片的描述"></p>
+
+<p>圆点运算符</p>
+
+<blockquote>
+<p>取得圆点前面的对象，然后求出该对象在圆点后面的事物</p>
+</blockquote>
+
+<div class="highlight highlight-java"><pre>myDog<span class="pl-k">.</span>bark();
+<span class="pl-c">//名为mydog的变量引用对象上的bark()</span></pre></div>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">int</span> myDog <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+<span class="pl-c">//对象的声明 创建 与赋值</span></pre></div>
+
+<p>引用范例</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">Dog</span> {
+  <span class="pl-smi">String</span> name;
+  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+<span class="pl-c">// 创建dog对象</span>
+   <span class="pl-smi">Dog</span> dog1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>(); 
+   dog1<span class="pl-k">.</span>bark(); 
+   dog1<span class="pl-k">.</span>name <span class="pl-k">=</span> “<span class="pl-smi">Bart</span>”;
+<span class="pl-c">//创建dog数组</span>
+<span class="pl-k">Dog</span>[] myDogs <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>[<span class="pl-c1">3</span>];
+
+<span class="pl-c">// 关门放狗</span>
+myDogs[<span class="pl-c1">0</span>] <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>(); 
+myDogs[<span class="pl-c1">1</span>] <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+myDogs[<span class="pl-c1">2</span>] <span class="pl-k">=</span> dog1;
+
+<span class="pl-c">// 通过数据引用存取Dog </span>
+myDogs[<span class="pl-c1">0</span>]<span class="pl-k">.</span>name <span class="pl-k">=</span> “<span class="pl-smi">Fred</span>”;
+myDogs[<span class="pl-c1">1</span>]<span class="pl-k">.</span>name <span class="pl-k">=</span> “<span class="pl-smi">Marge</span>”;
+
+<span class="pl-c">// myDog[2]的名字</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print(“last dog’s name is “); 
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(myDogs[<span class="pl-c1">2</span>]<span class="pl-k">.</span>name);
+
+<span class="pl-c">// 逐个对Dog执行bark()</span>
+<span class="pl-k">int</span> x <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+<span class="pl-k">while</span>(x <span class="pl-k">&lt;</span> myDogs<span class="pl-k">.</span>length) {
+<span class="pl-c">//数组有个length变量能够返回元素的数目</span>
+   myDogs[x]<span class="pl-k">.</span>bark();
+   x <span class="pl-k">=</span> x <span class="pl-k">+</span> <span class="pl-c1">1</span>; 
+   }
+}
+<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">bark</span>() { 
+  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(name <span class="pl-k">+</span> “ says <span class="pl-smi">Ruff</span><span class="pl-k">!</span>”);
+}
+<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">eat</span>() { }
+<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">chaseCat</span>() { }
+}</pre></div>
+
+<p>要点</p>
+
+<blockquote>
+<p>*变量的声明必须有类型和名称</p>
+
+<p>*引用变量的值代表位于堆之对象的存取方法</p>
+
+<p>*引用变量如同遥控器，对引用变量使用圆点运算符可以如同按下遥控器按钮般的存取它的方法或者实例变量</p>
+
+<p>*数组一定是一个对象</p>
+</blockquote>
 
       <footer class="site-footer">
 
