@@ -331,9 +331,8 @@ p3isRight <span class="pl-k">=</span> <span class="pl-c1">true</span>;
 引用</p>
 </blockquote>
 
-<p>声明变量：变量必须有类型和名称。</p>
-
-<p>名称要避开保留字
+<p>声明变量：变量必须有类型和名称。
+名称要避开保留字
 <img src="http://7xinhd.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-04-19%20%E4%B8%8B%E5%8D%889.56.28.png" alt="此处输入图片的描述"></p>
 
 <p>圆点运算符</p>
@@ -391,14 +390,199 @@ myDogs[<span class="pl-c1">1</span>]<span class="pl-k">.</span>name <span class=
 <p>要点</p>
 
 <blockquote>
-<p>变量的声明必须有类型和名称</p>
-
-<p>引用变量的值代表位于堆之对象的存取方法</p>
-
-<p>引用变量如同遥控器，对引用变量使用圆点运算符可以如同按下遥控器按钮般的存取它的方法或者实例变量</p>
-
-<p>数组一定是一个对象</p>
+<p>变量的声明必须有类型和名称
+引用变量的值代表位于堆之对象的存取方法
+引用变量如同遥控器，对引用变量使用圆点运算符可以如同按下遥控器按钮般的存取它的方法或者实例变量
+数组一定是一个对象</p>
 </blockquote>
+
+<hr>
+
+<h2>
+<a id="chapter04-方法操作实例变量" class="anchor" href="#chapter04-%E6%96%B9%E6%B3%95%E6%93%8D%E4%BD%9C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>chapter04 方法操作实例变量</h2>
+
+<div class="highlight highlight-java"><pre><span class="pl-smi">Dog</span> d <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+d<span class="pl-k">.</span>bark(<span class="pl-c1">3</span>);
+<span class="pl-c">//调用dog上的bark()方法，并传入3这个值作为此方法的参数</span>
+<span class="pl-c">//以int类型表示的值3会传递给bark（）</span>
+
+<span class="pl-k">void</span> bark (<span class="pl-k">int</span> numOfBarks) { 
+<span class="pl-c">//此值会传给numofbarks这个参数（int类型的变量）</span>
+  <span class="pl-k">while</span> (numOfBarks<span class="pl-k">&gt;</span><span class="pl-c1">0</span>){
+      system<span class="pl-k">.</span>out<span class="pl-k">.</span>printlin(“ruff”);
+      numOfBarks<span class="pl-k">=</span>numOfBarks<span class="pl-k">-</span><span class="pl-c1">1</span>;
+<span class="pl-c">//把numOfBarks当作一般的变量使用 </span>
+   }
+}</pre></div>
+
+<div class="highlight highlight-java"><pre>
+<span class="pl-k">class</span> <span class="pl-en">Dog</span> { 
+<span class="pl-k">int</span> size; 
+<span class="pl-smi">String</span> name;
+<span class="pl-k">void</span> <span class="pl-en">bark</span>() {
+<span class="pl-k">if</span> (size <span class="pl-k">&gt;</span> <span class="pl-c1">60</span>) {
+  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Wooof</span><span class="pl-k">!</span> <span class="pl-smi">Wooof</span><span class="pl-k">!</span>”); 
+} <span class="pl-k">else</span> <span class="pl-k">if</span> (size <span class="pl-k">&gt;</span> <span class="pl-c1">14</span>) {
+  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Ruff</span><span class="pl-k">!</span> <span class="pl-smi">Ruff</span><span class="pl-k">!</span>”);
+} <span class="pl-k">else</span> {
+  <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Yip</span><span class="pl-k">!</span> <span class="pl-smi">Yip</span><span class="pl-k">!</span>”);
+    }
+  } 
+}</pre></div>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">DogTestDrive</span> {
+<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+<span class="pl-smi">Dog</span> one <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+one<span class="pl-k">.</span>size <span class="pl-k">=</span> <span class="pl-c1">70</span>;
+<span class="pl-smi">Dog</span> two <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+two<span class="pl-k">.</span>size <span class="pl-k">=</span> <span class="pl-c1">8</span>;
+<span class="pl-smi">Dog</span> three <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+three<span class="pl-k">.</span>size <span class="pl-k">=</span> <span class="pl-c1">35</span>;
+
+one<span class="pl-k">.</span>bark(); 
+two<span class="pl-k">.</span>bark(); 
+three<span class="pl-k">.</span>bark();
+   } 
+}</pre></div>
+
+<p>A method uses parameters. A caller passes arguments.
+You can send more than one thing to a method</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">void</span> go() {
+<span class="pl-smi">TestStuff</span> t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">TestStuff</span>();
+t<span class="pl-k">.</span>takeTwo(<span class="pl-c1">12</span>, <span class="pl-c1">34</span>);
+}
+<span class="pl-k">void</span> takeTwo(<span class="pl-k">int</span> x, <span class="pl-k">int</span> y) {
+<span class="pl-k">int</span> z <span class="pl-k">=</span> x <span class="pl-k">+</span> y; 
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Total</span> is ” <span class="pl-k">+</span> z);
+}
+<span class="pl-c">//Calling a two-parameter method, and sending it two arguments.</span></pre></div>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">void</span> go() {
+<span class="pl-k">int</span> foo <span class="pl-k">=</span> <span class="pl-c1">7</span>;
+<span class="pl-k">int</span> bar <span class="pl-k">=</span> <span class="pl-c1">3</span>; t<span class="pl-k">.</span>takeTwo(foo, bar);
+}
+<span class="pl-k">void</span> takeTwo(<span class="pl-k">int</span> x, <span class="pl-k">int</span> y) {
+<span class="pl-k">int</span> z <span class="pl-k">=</span> x <span class="pl-k">+</span> y;
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Total</span> is ” <span class="pl-k">+</span> z);
+}
+<span class="pl-c">//You can pass variables into a method, as long as the variable type matches the parameter type.</span></pre></div>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">int</span> x <span class="pl-k">=</span> <span class="pl-c1">7</span>;
+<span class="pl-c">/*Declare an int variable and assign it the value ‘7’. The bit pattern for 7 goes into the variable named x.*/</span>
+<span class="pl-k">void</span> go(<span class="pl-k">int</span> z){ }
+<span class="pl-c">//Declare a method with an int parameter named z.</span>
+foo<span class="pl-k">.</span>go(x);
+<span class="pl-k">void</span> go(<span class="pl-k">int</span> z){ }
+<span class="pl-c">/*Call the go() method, passing the variable x as the argument. The bits in x are copied, and the copy lands in z.*/</span>
+<span class="pl-k">void</span> go(<span class="pl-k">int</span> z){ z <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+}
+<span class="pl-c">/*Change the value of z inside the method. The value of x doesn’t change! The argument passed to the z parameter was only a copy of x.</span>
+<span class="pl-c">The method can’t change the bits that were in the calling variable x.*/</span></pre></div>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">ElectricGuitar</span> {
+<span class="pl-smi">String</span> brand;
+<span class="pl-k">int</span> numOfPickups; <span class="pl-k">boolean</span> rockStarUsesIt;
+<span class="pl-smi">String</span> <span class="pl-en">getBrand</span>() { <span class="pl-k">return</span> brand;
+}
+<span class="pl-k">void</span> <span class="pl-en">setBrand</span>(<span class="pl-smi">String</span> <span class="pl-v">aBrand</span>) { brand <span class="pl-k">=</span> aBrand;
+}
+<span class="pl-k">int</span> <span class="pl-en">getNumOfPickups</span>() { <span class="pl-k">return</span> numOfPickups;
+}
+<span class="pl-k">void</span> <span class="pl-en">setNumOfPickups</span>(<span class="pl-k">int</span> <span class="pl-v">num</span>) { numOfPickups <span class="pl-k">=</span> num;
+}
+<span class="pl-k">boolean</span> <span class="pl-en">getRockStarUsesIt</span>() { <span class="pl-k">return</span> rockStarUsesIt;
+}
+<span class="pl-k">void</span> <span class="pl-en">setRockStarUsesIt</span>(<span class="pl-k">boolean</span> <span class="pl-v">yesOrNo</span>) { rockStarUsesIt <span class="pl-k">=</span> yesOrNo;
+} 
+}</pre></div>
+
+<p>Encapsulating the GoodDog class</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">GoodDog</span> {
+<span class="pl-k">private</span> <span class="pl-k">int</span> size;
+<span class="pl-c">//Make the instance variable private.</span>
+<span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">getSize</span>() { 
+<span class="pl-k">return</span> size;
+}
+<span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setSize</span>(<span class="pl-k">int</span> <span class="pl-v">s</span>) {
+<span class="pl-c">//Make the getter and setter methods public.</span>
+size <span class="pl-k">=</span> s;
+}
+<span class="pl-k">void</span> <span class="pl-en">bark</span>() {
+<span class="pl-k">if</span> (size <span class="pl-k">&gt;</span> <span class="pl-c1">60</span>) {
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Wooof</span><span class="pl-k">!</span> <span class="pl-smi">Wooof</span><span class="pl-k">!</span>”); 
+} <span class="pl-k">else</span> <span class="pl-k">if</span> (size <span class="pl-k">&gt;</span> <span class="pl-c1">14</span>) {
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Ruff</span><span class="pl-k">!</span> <span class="pl-smi">Ruff</span><span class="pl-k">!</span>”); 
+} <span class="pl-k">else</span> {
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Yip</span><span class="pl-k">!</span> <span class="pl-smi">Yip</span><span class="pl-k">!</span>”);
+          }
+     }
+}
+<span class="pl-k">class</span> <span class="pl-en">GoodDogTestDrive</span> {
+<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span> (<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+<span class="pl-smi">GoodDog</span> one <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GoodDog</span>();
+one<span class="pl-k">.</span>setSize(<span class="pl-c1">70</span>);
+<span class="pl-smi">GoodDog</span> two <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GoodDog</span>();
+two<span class="pl-k">.</span>setSize(<span class="pl-c1">8</span>);
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Dog</span> one<span class="pl-k">:</span> “ <span class="pl-k">+</span> one<span class="pl-k">.</span>getSize()); <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(“<span class="pl-smi">Dog</span> two<span class="pl-k">:</span> “ <span class="pl-k">+</span> two<span class="pl-k">.</span>getSize()); one<span class="pl-k">.</span>bark();
+two<span class="pl-k">.</span>bark(); 
+   }
+}
+
+<span class="pl-c">//Even though the methods don’t really add new functionality, the cool thing is that you can change your mind later. you can come back and make a method safer, faster, better.</span></pre></div>
+
+<p>How do objects in an array behave?</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">Dog</span>[] pets;
+pets <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>[<span class="pl-c1">7</span>];
+<span class="pl-c">//Declare and create a Dog array, to hold 7 Dog references.</span>
+pets[<span class="pl-c1">0</span>] <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+pets[<span class="pl-c1">1</span>] <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+<span class="pl-c">//Create two new Dog objects, and assign them to the first two array elements.</span>
+
+pets[<span class="pl-c1">0</span>]<span class="pl-k">.</span>setSize(<span class="pl-c1">30</span>);
+<span class="pl-k">int</span> x <span class="pl-k">=</span> pets[<span class="pl-c1">0</span>]<span class="pl-k">.</span>getSize(); 
+pets[<span class="pl-c1">1</span>]<span class="pl-k">.</span>setSize(<span class="pl-c1">8</span>);
+<span class="pl-c">//Call methods on the two Dog objects.</span></pre></div>
+
+<p>The difference between instance and local variables</p>
+
+<p>Instance variables are declared inside a class but not within a method.</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">Horse</span> {
+<span class="pl-k">private</span> <span class="pl-k">double</span> height <span class="pl-k">=</span> <span class="pl-c1">15.2</span>;
+<span class="pl-k">private</span> <span class="pl-smi">String</span> breed;
+<span class="pl-c">// more code... </span>
+}</pre></div>
+
+<p>Local variables are declared within a method.</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">class</span> <span class="pl-en">AddThing</span> {
+<span class="pl-k">int</span> a;
+<span class="pl-k">int</span> b <span class="pl-k">=</span> <span class="pl-c1">12</span>;
+<span class="pl-k">public</span> <span class="pl-k">int</span> <span class="pl-en">add</span>() {
+<span class="pl-k">int</span> total <span class="pl-k">=</span> a <span class="pl-k">+</span> b; 
+<span class="pl-k">return</span> total;
+  } 
+}</pre></div>
+
+<p>Local variables MUST be initialized before use!</p>
+
+<p>To compare two primitives, use the == operator</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-k">int</span> a <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+<span class="pl-k">byte</span> b <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+<span class="pl-k">if</span> (a <span class="pl-k">==</span> b) { <span class="pl-c">// true }</span></pre></div>
+
+<p>To see if two references are the same (which means they refer to the same object on the heap) use the == operator</p>
+
+<div class="highlight highlight-java"><pre><span class="pl-smi">Foo</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Foo</span>();
+<span class="pl-smi">Foo</span> b <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Foo</span>();
+<span class="pl-smi">Foo</span> c <span class="pl-k">=</span> a;
+<span class="pl-k">if</span> (a <span class="pl-k">==</span> b) { <span class="pl-c">// false }</span>
+<span class="pl-k">if</span> (a <span class="pl-k">==</span> c) { <span class="pl-c">// true }</span>
+<span class="pl-k">if</span> (b <span class="pl-k">==</span> c) { <span class="pl-c">// false }</span></pre></div>
 
       <footer class="site-footer">
 
